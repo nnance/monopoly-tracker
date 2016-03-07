@@ -1,0 +1,28 @@
+<h1>Monopoly Game Piece Organizer</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <div class="input-group">
+    <span class="input-group-btn">
+      <span class="btn btn-primary btn-file">
+          Browse&hellip; <input type="file" name="images" multiple>
+      </span>
+    </span>
+    <input type="text" class="form-control" readonly>
+  </div>
+  <span class="help-block">Try selecting one or more files and watch the feedback</span>
+  <button formmethod="post" class="btn btn-primary">Send</button>
+</form>
+<script>
+  $(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+  $(document).ready( function() {
+    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+      $('.form-control')[0].value = label
+      console.log(numFiles);
+      console.log(label);
+    });
+  });
+</script>
