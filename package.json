@@ -4,7 +4,8 @@
   "description": "upload and track game pieces",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./index.js",
+    "lint": "eslint .",
+    "dev": "nodemon ./index.js",
     "test": "mocha test/*"
   },
   "keywords": [
@@ -29,6 +30,7 @@
     "eslint-config-defaults": "^9.0.0",
     "eslint-plugin-filenames": "^0.2.0",
     "mocha": "^2.4.5",
+    "nodemon": "^1.9.1",
     "sinon": "^1.17.3"
   }
 }
